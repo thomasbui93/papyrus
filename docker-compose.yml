@@ -1,0 +1,28 @@
+version: '3.3'
+
+services:
+  webapp:
+    image: nginx:latest
+    container_name: papyrus_web
+    ports:
+      - "80:80"
+      - "9000:9000"
+      - "443:443"
+    volumes:
+      - ./webapp/til:/var/www/app
+      - ./nginx-config/site.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx-config/ssl:/etc/ssl
+  fpm:
+    container_name: papyrus_fpm
+    build:
+      context: ./fpm
+    restart: always
+    volumes:
+      - ./webapp/til:/var/www/app
+  core_database:
+    container_name: papyrus_database
+    image: postgres:latest
+    restart: always
+    ports:
+      - "5432:5432"
+  

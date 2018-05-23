@@ -1,0 +1,10 @@
+vendor/
+node_modules/
+.vscode/
+###> symfony/framework-bundle ###
+/.env
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+.DS_Store

@@ -1,0 +1,8 @@
+version: '3.3'
+
+services:
+  core_database:
+    environment:
+      POSTGRES_DB: cobi
+      POSTGRES_USER: cobi
+      POSTGRES_PASSWORD: cobi
